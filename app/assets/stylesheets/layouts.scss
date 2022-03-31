@@ -2,34 +2,27 @@
 /* PC メニュー */
 #navigation{
   float: left;
-  width: 30%;
+  width: 10%;
   margin: 0;
   padding: 0;
 }
 #navigation h3{
   margin: 0;
   padding: 8px 5px 5px;
-  background: #8d990f;
-  color: #fff;
+  background: #fff;
+  color: #000;
   font-size: 12px;
   text-align: center;
 }
-#menu h3:nth-of-type(1){ background: #8d990f; }
-#menu h3:nth-of-type(2){ background: #99820f; }
-#menu h3:nth-of-type(3){ background: #995f0f; }
-#menu h3:nth-of-type(4){ background: #993d0f; }
+/*#menu h3:nth-of-type(1){ background: #000000; }*/
 
 #navigation ul{
   list-style-type: none;
   margin: 0;
   padding: 0;
   background: #fff;
-  border-left: 5px solid #8d990f;
 }
-#menu ul:nth-of-type(1){ border-color: #8d990f; }
-#menu ul:nth-of-type(2){ border-color: #99820f; }
-#menu ul:nth-of-type(3){ border-color: #995f0f; }
-#menu ul:nth-of-type(4){ border-color: #993d0f; }
+/*#menu ul:nth-of-type(1){ border-color: #8d990f; }*/
 #navigation ul li{
   width: 100%;
   margin: 0;
@@ -46,14 +39,14 @@
   text-decoration: none;
 }
 #navigation li a:hover{ background: #eee; }
-#toggle{ display: none; }
+/* #toggle{ display: none; } */
 
 /* ちいさめ画面　メニュー */
 @media only screen and (max-width: 1023px) {
   #navigation{
     float: none;
     width: 100%;
-    background: #ebe7d2;
+    background: #ffffff;
   }
   #menu { 
       position: fixed;
@@ -104,6 +97,8 @@
   }
   #navigation ul li a:hover{ background: #f5f4ea; }
   
+  /* 簡易プロフィールを隠す */
+  #profile{ display: none; }
   /*　トグルボタン　
   
   #toggle{
