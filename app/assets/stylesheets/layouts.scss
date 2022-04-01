@@ -1,5 +1,14 @@
 
 /* PC メニュー */
+/* main content test */
+.content{
+  float: right;
+  width: 90%;
+  margin: 0;
+  padding: 0;
+}
+
+
 #navigation{
   float: left;
   width: 10%;
@@ -43,6 +52,13 @@
 
 /* ちいさめ画面　メニュー */
 @media only screen and (max-width: 1023px) {
+  /* main content test */
+  .content{
+    float: none;
+    width: 90%;
+    margin: 0;
+    padding: 0;
+  }
   #navigation{
     float: none;
     width: 100%;
