@@ -2,43 +2,49 @@
 /* PC メニュー */
 /* main content test */
 .content{
-  float: right;
-  width: 90%;
+  display: table;
+  width: 100%;
   margin: 0;
   padding: 0;
 }
 
-
-#navigation{
-  float: left;
-  width: 10%;
+.navigation{
+  display: table-cell;
+  width: 15%;
   margin: 0;
   padding: 0;
 }
-#navigation h3{
+
+.main{
+  display: table-cell;
+  width: 85%;
+  margin: 0;
+  padding: 0;
+}
+.navigation h3{
   margin: 0;
   padding: 8px 5px 5px;
   background: #fff;
   color: #000;
   font-size: 12px;
-  text-align: center;
+  text-align: left;
 }
 /*#menu h3:nth-of-type(1){ background: #000000; }*/
 
-#navigation ul{
+.navigation ul{
   list-style-type: none;
   margin: 0;
   padding: 0;
   background: #fff;
 }
 /*#menu ul:nth-of-type(1){ border-color: #8d990f; }*/
-#navigation ul li{
+.navigation ul li{
   width: 100%;
   margin: 0;
   padding: 0;
 }
 /* link */
-#navigation ul li a{
+.navigation ul li a{
   display: block;
   margin: 0;
   padding: 8px 10px;
@@ -47,31 +53,37 @@
   text-align: left;
   text-decoration: none;
 }
-#navigation li a:hover{ background: #eee; }
+.navigation li a:hover{ background: #eee; }
 /* #toggle{ display: none; } */
 
 /* ちいさめ画面　メニュー */
 @media only screen and (max-width: 1023px) {
   /* main content test */
   .content{
-    float: none;
-    width: 90%;
+    display: block;
+    width: 100%;
     margin: 0;
     padding: 0;
   }
-  #navigation{
-    float: none;
+  .navigation{
+    display: block;
     width: 100%;
     background: #ffffff;
   }
-  #menu { 
+  .main{
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0; 
+  }
+  .menu { 
       position: fixed;
       left: 0;
       bottom: 0;
       background: white;
       width: 100%;
   }
-  #menu:after {
+  .menu:after {
     position: absolute;
     content:"";
     bottom: 0;
@@ -80,41 +92,41 @@
     height: 1px;
     background: #d6cea3;
   }
-  #navigation h3{
+  .navigation h3{
     clear: both;
     position: relative;
     z-index: 9999;
   }
-  #navigation ul{
+  .navigation ul{
     margin-bottom: -1px;
     border-left-width: 3px;
     border-right-width: 3px;
     border-right-style: solid;
     background: #ebe7d2;
   }
-  #navigation ul:before,
-  #navigation ul:after{
+  .navigation ul:before,
+  .navigation ul:after{
     content: "";
     display: table;
   }
-  #navigation ul:after{ clear: both; }
-  #navigation ul{ *zoom: 1; }
-  #navigation ul li{
+  .navigation ul:after{ clear: both; }
+  .navigation ul{ *zoom: 1; }
+  .navigation ul li{
     float: left;
     width: 25%;
     box-sizing: border-box;
     border-right: 1px solid #d6cea3;
     border-bottom: 1px solid #d6cea3;
   }
-  #navigation ul li:nth-of-type(4n){ border-right: 0; }
-  #navigation ul li a{
+  .navigation ul li:nth-of-type(4n){ border-right: 0; }
+  .navigation ul li a{
     text-align: center;
     padding: 12px 0px;
   }
-  #navigation ul li a:hover{ background: #f5f4ea; }
+  .navigation ul li a:hover{ background: #f5f4ea; }
   
   /* 簡易プロフィールを隠す */
-  #profile{ display: none; }
+  .profile{ display: none; }
   /*　トグルボタン　
   
   #toggle{
@@ -158,11 +170,11 @@
 }
 
 @media only screen and (max-width: 767px) {
-  #navigation ul li{ width: 50%; }
-  #navigation ul li:nth-of-type(2n){ border-right: 0; }
+  .navigation ul li{ width: 50%; }
+  .navigation ul li:nth-of-type(2n){ border-right: 0; }
 }
 @media only screen and (max-width: 479px) {
-#navigation ul li{
+.navigation ul li{
     float: none;
     width: 100%;
   }

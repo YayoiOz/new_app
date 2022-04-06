@@ -1,9 +1,14 @@
 <!-- ログインしてない時=ウェルカムページの時は隠す-->
 
-<div id="navigation">
-  <div id="menu">
-    <div id="profile">
-    <h3>簡易プロフィール</h3></div>
+<div class="navigation">
+  <div class="menu">
+    <div class="profile">
+      <h3>簡易プロフィール</h3>
+      <% if current_user %>
+      <h3>ユーザー名：<%= current_user.name %></h3>
+      <h3>プロフィール：<%= current_user.profile %></h3>
+      <% end %>
+    </div>
     <ul>
       <li><%= link_to 'Profile', users_show_path %></li>
       <li><a href="#">menu2</a></li>
@@ -12,5 +17,6 @@
       <li><a href="#">menu5</a></li>
       <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
     </ul>
+    
   </div>
 </div>
