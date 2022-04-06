@@ -5,10 +5,12 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
     <div class="content">
+    <%= render 'layouts/header' %>
+      <div class="main">
     <%= render 'layouts/flash' %>
           <%= yield %>
+      </div>
     </div>
     <%= render 'layouts/footer' %>
   
