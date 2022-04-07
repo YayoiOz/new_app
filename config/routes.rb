@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :contents
   root to: "home#index"
   
@@ -14,7 +15,14 @@ Rails.application.routes.draw do
     get "signup", :to => "users/registrations#new"
     get "login", :to => "users/sessions#new"
     delete "logout", :to => "users/sessions#destroy"
-    get 'users/show', :to => 'users#show' 
+  end
+  
+  resouces :users, only: [:edit, :update] do
+    collection do
+      get 'mypage', :to => 'users#show'
+      get 'mypage/edit', :to => 'users#edit'
+      put 'mypage', :to => 'users#update' 
+    end
   end
   
 end
