@@ -23,5 +23,8 @@ module NewApp
     #  Devise::PasswordsController.layout "devise"
     #  HomeController.layout "home"
     #end
+    # バリデーションエラーが発生したときに'field_with_errors'というclassを付加しない
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
+
   end
 end
