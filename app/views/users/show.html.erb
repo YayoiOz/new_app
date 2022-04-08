@@ -1,9 +1,25 @@
+<div class="container d-flex justify-content-center mt-3">
+    <div class="w-50">
 <h1>Profile</h1>
+
+    <div class="container">
+      <div class="d-flex justify-content-between">
+        <div class="row">
+            <div class="col-9 d-flex align-items-center ml-2 mt-3">
+                <div class="d-flex flex-column">
 <h3>ユーザー名</h3>
 <%= @user.name %>
-<h3>メールアドレス</h3>
-<%= @user.email %>
+
 <h3>プロフィール</h3>
 <%= @user.profile %>
 
-<%= link_to "編集する", edit_user_registration_path %>
+<h3>フレンド(未実装)</h3>
+
+<%= link_to "編集する", mypage_edit_users_path %>
+</div>
+</div>
+</div>
+</div>
+</div>
+    </div>
+</div>
