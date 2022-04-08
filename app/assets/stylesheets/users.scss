@@ -1,3 +1,74 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.tsublog-login-input {
+  border-radius: 2px;
+  border: solid 1px #b2b2b2;
+  background-color: #ffffff;
+}
+.tsublog-edit-user-info-label{
+  font-size: 14px;
+}
+
+.tsublog-check-label {
+  font-family: YuGo;
+  font-size: 10px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+
+.tsublog-require-input-label {
+  border-radius: 1px;
+  background-color: #e2001b;
+}
+
+.tsublog-require-input-label-text {
+  font-family: YuGo;
+  font-size: 10px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+
+.tsublog-submit-button {
+  font-family: YuGo;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #b2b2b2;
+  color: #ffffff;
+  background-color: #0fbe9f;
+}
+
+.tsublog-login-text {
+  font-family: YuGo;
+  font-size: 10px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0fbe9f;
+}
+
+.tsublog-error-message {
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #e3342f
+}
+
+.user-edit-label {
+  cursor: pointer;
+  cursor: hand;
+}

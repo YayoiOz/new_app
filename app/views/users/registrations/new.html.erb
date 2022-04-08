@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <h3 class="mt-3 mb-3">新規登録</h3>
+      
+      <hr>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    
+  <div class="form-group row">
+    <%= f.label :name, "", class:"col-md-5 col-form-label text-md-left" do %>
+    名前
+    <span class="ml-1 tsublog-require-input-label">
+      <span class="tsublog-require-input-label-text">必須</span>
+    </span>
+  <% end %>
+  
+    <div class="col-md-7">
+    <%=
+      f.text_field :name,
+      class: "form-control #{"is-invalid" if resource.errors.messages[:name].present? } tsublog-login-input",
+      autofocus: "true",
+      required: "",
+      autocomplete: "name",
+      placeholder: "やまだ　たろう"
+    %>
+    <% if resource.errors.messages[:name].present? %>
+      <span class="tsublog-error-message">
+        <strong><%= resource.errors.full_messages_for(:name).first %></strong>
+      </span>
+    <% end %>
+    </div>
+  </div>
+    
+  <div class="form-group row">
+    <%= f.label :email, "", class: "col-md-5 col-form-label text-md-left" do %>
+    メールアドレス
+    <span class="ml-1 tsublog-require-input-label">
+      <span class="tsublog-require-input-label-text">必須</span>
+    </span>
+    <% end %>
+
+    <div class="col-md-7">
+      <%=
+        f.email_field :email,
+        class: "form-control #{"is-invalid" if resource.errors.messages[:email].present? } tsublog-login-input",
+        autofocus: "true",
+        required: "",
+        autocomplete: "email",
+        placeholder: "メールアドレス"
+      %>
+
+      <% if resource.errors.messages[:email].present? %>
+        <span class="tsublog-error-message">
+          <strong><%= resource.errors.full_messages_for(:email).first %></strong>
+        </span>
+      <% end %>
+      </div>
+  </div>
+  
+  <div class="form-group row">
+    <%= f.label :password,"", class: "col-md-5 col-form-label text-md-left" do %>
+    パスワード
+    <span class="ml-1 tsublog-require-input-label">
+      <span class="tsublog-require-input-label-text">必須</span>
+    </span>
+    <% end %>
+    <div class="col-md-7">
+      <%= 
+        f.password_field :password,
+        class: "form-control #{ "is-invalid" if resource.errors.messages[:password].present? } tsublog-login-input",
+        autocomplete: "new-password",
+        autfocus: "true",
+        placeholder: "password"
+      %>
+      <% if resource.errors.messages[:password].present? %>
+        <span class="tsublog-error-message">
+          <strong><%= resource.errors.full_messages_for(:password).first %></strong>
+        </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :password_confirmation, "", class: "col-md-5 col-form-label text-md-left" do %>
+    <% end %>
+    <div class="col-md-7">
+    <%= 
+      f.password_field :password_confirmation, 
+      class:"form-control tsublog-login-input",
+      autocomplete: "new-password", 
+       placeholder: "password(再確認)"
+    %>
+  </div>
+  </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn tsublog-submit-button w-100">
+            アカウント作成
+          </button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
