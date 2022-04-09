@@ -6,7 +6,7 @@ class ContentsController < ApplicationController
   def index
     #current_user.contentsはユーザーが持ってるコンテンツのみ
     @contents = current_user.contents
-    #@user = User.find_by(id: @content.user_id)
+    #@user = User.find_by(:id => @content.user_id)
   end
 
   # GET /contents/new
