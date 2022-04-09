@@ -6,4 +6,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :profile, length: { maximum: 200 }
   has_many :contents
+  
+  def contents
+    return Content.where(user_id: self.id)
+  end
 end
