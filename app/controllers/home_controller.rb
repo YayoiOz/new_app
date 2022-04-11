@@ -3,5 +3,5 @@ class HomeController < ApplicationController
     def index
         redirect_to contents_path if user_signed_in?
     end
-    #そうでない場合home#indexに飛ぶ
+    #そうでない場合home#indexに飛ぶ(application_controllerで制御しているはず…)
 end

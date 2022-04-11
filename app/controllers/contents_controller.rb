@@ -1,18 +1,17 @@
 class ContentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_content, only: [:show, :edit, :update, :destroy]
 
   # GET /contents
   def index
-    @contents = Content.all
-  end
-
-  # GET /contents/1
-  def show
+    #current_user.contentsはユーザーが持ってるコンテンツのみ
+    @contents = current_user.contents
+    #@user = User.find_by(:id => @content.user_id)
   end
 
   # GET /contents/new
   def new
-    @content = Content.new
+    @content = current_user.contents.new
   end
 
   # GET /contents/1/edit
@@ -21,34 +20,34 @@ class ContentsController < ApplicationController
 
   # POST /contents
   def create
-    @content = Content.new(content_params)
+    @content = current_user.contents.new(content_params)
+    @content.user_id = current_user.id
 
     if @content.save
-      redirect_to @content, notice: 'Content was successfully created.'
+      @status = true
     else
-      render :new
+      @status = false
     end
   end
 
   # PATCH/PUT /contents/1
   def update
     if @content.update(content_params)
-      redirect_to @content, notice: 'Content was successfully updated.'
+      @status = true
     else
-      render :edit
+      @status = false
     end
   end
 
   # DELETE /contents/1
   def destroy
     @content.destroy
-    redirect_to contents_url, notice: 'Content was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_content
-      @content = Content.find(params[:id])
+      @content = Content.find_by(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

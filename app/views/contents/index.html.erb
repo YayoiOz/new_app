@@ -2,12 +2,6 @@
 
 <h3>Contents</h3>
 
-<% @contents.each do |content| %>
-  <%= content.body %>
-  <%= link_to 'Show', content %>
-  <%= link_to 'Edit', edit_content_path(content) %>
-  <%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?'} %>
-<% end %>
-<br>
+<%= render @contents %>
 
 <%= link_to 'New Content', new_content_path %>
