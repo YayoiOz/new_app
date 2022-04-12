@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :contents
   root to: "home#index"
+  resources :relationships, only:[:create, :destroy]
   
   
   devise_for :users, :controllers => {
