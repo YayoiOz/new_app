@@ -5,7 +5,7 @@ class ContentsController < ApplicationController
   # GET /contents
   def index
     #current_user.contentsはユーザーが持ってるコンテンツのみ
-    @contents = current_user.contents
+    @contents = current_user.contents.order(created_at: :desc)
     #@user = User.find_by(:id => @content.user_id)
   end
 
