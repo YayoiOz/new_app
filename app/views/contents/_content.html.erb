@@ -2,7 +2,7 @@
 contentを持っているユーザーの名前が取得できているのか　-->
 <div class="card mb-3">
   <div class="card-body">
-    <h5 class="card-title"><%= content.user.name %><%= content.user.email %></h5>
+    <h5 class="card-title"><%= content.user.name %></h5><%= content.user.email %><%= content.created_at %>
     <p class="card-text"><%= content.body %></p>
     <%= link_to 'Edit', edit_content_path(content), class: "btn btn-outline-primary" %>
     <%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %>
