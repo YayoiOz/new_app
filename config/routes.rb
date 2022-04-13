@@ -26,9 +26,10 @@ Rails.application.routes.draw do
     end
   end
   resources :users do
-      get :followings, on: :member
-      get :followers, on: :member
-      get 'profile', :to => 'users#profile'
+    resource :relationships, only:[:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
+    get 'profile', :to => 'users#profile'
   end
   
   

@@ -8,24 +8,22 @@ class User < ApplicationRecord
   validates :profile, length: { maximum: 200 }
   
   #follow(rerationship)用の記述
-  has_many :relationships
-  has_many :followings, through: :relationships, source: :follow
-  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
-  has_many :followers, through: :reverse_of_relationships, source: :user
+  has_many :relationships, class_name: "Relationship", foreign_key: "follow_id", dependent: :destroy
+  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "target_id", dependent: :destroy
+  # 一覧画面で使う
+  has_many :followings, through: :relationships, source: :target
+  has_many :followers, through: :reverse_of_relationships, source: :follow
   
-  def follow(other_user)
-    unless self == other_user
-      self.relationships.find_or_create_by(follow_id: other_user.id)
-    end
+  def follow(user_id)
+    relationships.find_or_create_by(target_id: user_id)
   end
   
-  def unfollow(other_user)
-    relationship = self.relationships.find_by(follow_id: other_user.id)
-    relationship.destroy if relationship
+  def unfollow(user_id)
+    relationships.find_by(target_id: user_id).destroy
   end
   
-  def following?(other_user)
-    self.followings.include?(other_user)
+  def following?(user)
+    followings.include?(user)
   end
   
   
