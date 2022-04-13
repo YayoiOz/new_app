@@ -52,7 +52,7 @@
           </div>
           <div class="collapse editUserProfile">
             <%=
-              f.text_field :profile,
+              f.text_area :profile,
               class: "form-control #{"is-invalid" if @user.errors.messages[:profile].present? }",
               autofocus: "true",
               required: "",
