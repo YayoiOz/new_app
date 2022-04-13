@@ -1,23 +1,29 @@
 class UsersController < ApplicationController
-  before_action :set_user
+  
   
   def edit
+    set_user
   end
   
   def update
-
+    set_user
     @user.update_without_password(user_params)
     redirect_to mypage_users_path
   end
   
   def show
-
+    set_user
+  end
+  
+  def profile
+    @user = User.find_by(id: params[:user_id])
   end
   
   private
     def set_user
-      @user = current_user
+      @user =current_user
     end
+
     def user_params
       params.permit(:name, :email, :profile, :password, :password_confirmation)
     end

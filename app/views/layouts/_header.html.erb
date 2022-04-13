@@ -3,14 +3,14 @@
 <div class="navigation">
   <div class="menu">
     <div class="profile">
-      <h3>簡易プロフィール</h3>
       <% if current_user %>
+      <h3>プロフィール</h3>
       <h3>ユーザー名：<%= current_user.name %></h3>
       <h3>プロフィール：<%= current_user.profile %></h3>
       <% end %>
     </div>
     <ul>
-      <li><%= link_to 'Profile', mypage_users_path %></li>
+      <li><%= link_to 'Profileを確認', mypage_users_path %></li>
       <li><a href="#">menu2</a></li>
       <li><a href="#">menu3</a></li>
       <li><a href="#">menu4</a></li>

@@ -24,5 +24,11 @@ Rails.application.routes.draw do
       put 'mypage', :to => 'users#update' 
     end
   end
+  resources :users do
+      get :followings, on: :member
+      get :followers, on: :member
+      get 'profile', :to => 'users#profile'
+  end
+  
   
 end
