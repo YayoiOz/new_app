@@ -10,3 +10,7 @@ contentを持っているユーザーの名前が取得できているのか　-
     <%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %>
   </div>
 </div>
+<!-- Issue：
+・記事を持ってるユーザーにだけEditとDestroyを表示<br>
+1．if current_user?で分岐させる<br>
+・返信ボタンを用意する(返信用テーブルを作成後) -->
