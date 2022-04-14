@@ -25,6 +25,8 @@ module NewApp
     #end
     # バリデーションエラーが発生したときに'field_with_errors'というclassを付加しない
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
+    #タイムゾーンを東京に合わせる
+    config.time_zone = 'Tokyo'
 
   end
 end
