@@ -5,13 +5,24 @@
   </head>
 
   <body>
-    <div class="content">
-    <%= render 'layouts/header' %>
-      <div class="main">
-    <%= render 'layouts/flash' %>
-          <%= yield %>
+    <!-- ログイン時はsplitでPC左右・スマホ上下分割 -->
+    <% if user_signed_in? %>
+    <div class="split">
+      <div class="split-item split-menu">
+        <%= render 'layouts/header' %>
+      </div>  
+      <div class="split-item split-main">
+        <%= render 'layouts/flash' %>
+            <%= yield %>
       </div>
     </div>
+    <% else %>
+      <!-- 非ログイン時はメニューを隠す+CSSを変える(splitをなくす) -->
+      <div class="not-split">
+      <%= render 'layouts/flash' %>
+      <%= yield %>
+      </div>
+    <% end %>
     <%= render 'layouts/footer' %>
   
   </body>
