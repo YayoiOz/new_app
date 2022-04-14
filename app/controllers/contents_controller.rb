@@ -5,10 +5,11 @@ class ContentsController < ApplicationController
   # GET /contents
   def index
     #ユーザーが持ってるコンテンツのみ(current_user.contentsしてるから)
-    @contents = current_user.contents.order(created_at: :desc)
+    #@contents = current_user.contents.order(created_at: :desc)
     #コンテンツテーブルから全部のデータを引っ張ってくる
     #@contents = Content.all
     #最終目標：current_userとtarget_idのユーザーのコンテンツを降順で表示
+    @contents = Content.where(user_id: [current_user.id, *current_user.following_ids]).order(created_at: :desc)
   end
   
   def show
