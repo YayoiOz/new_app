@@ -1,14 +1,6 @@
 
 
 <p>
-  <strong>User:</strong>
-  <%= @content.user.name %>
+<%= render @content %>
 </p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @content.body %>
-</p>
-
-<%= link_to 'Edit', edit_content_path(@content) %> |
-<%= link_to 'Back', contents_path %>

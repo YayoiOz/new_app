@@ -4,9 +4,14 @@ class ContentsController < ApplicationController
 
   # GET /contents
   def index
-    #current_user.contentsはユーザーが持ってるコンテンツのみ
+    #ユーザーが持ってるコンテンツのみ(current_user.contentsしてるから)
     @contents = current_user.contents.order(created_at: :desc)
-    #@user = User.find_by(:id => @content.user_id)
+    #コンテンツテーブルから全部のデータを引っ張ってくる
+    #@contents = Content.all
+    #最終目標：current_userとtarget_idのユーザーのコンテンツを降順で表示
+  end
+  
+  def show
   end
 
   # GET /contents/new
@@ -46,8 +51,9 @@ class ContentsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    #元は@goal = Content.find(params[:id])だった　current_userのデータのみshow～destroyで使うってこと？
     def set_content
-      @content = Content.find_by(params[:id])
+      @content = current_user.contents.find_by(id: params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
