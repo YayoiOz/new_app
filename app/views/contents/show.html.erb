@@ -1,14 +1,9 @@
-
-
 <p>
-  <strong>User:</strong>
-  <%= @content.user.name %>
+<%= render @content %>
 </p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @content.body %>
-</p>
-
-<%= link_to 'Edit', edit_content_path(@content) %> |
-<%= link_to 'Back', contents_path %>
+<!--このページでやりたいこと<br>
+1．本記事（返信元）を表示↑<br>
+2．返信ボタンを用意<br>
+3．返信で書かれた記事を表示<br>
+返信記事の抽出をcontrollerにdef showで記述、<br>
+本記事の下にeach　doで表示 -->
