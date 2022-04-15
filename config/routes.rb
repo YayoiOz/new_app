@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-
-  resources :contents
   root to: "home#index"
-  resources :relationships, only:[:create, :destroy]
+  resources :contents
+  #resources :relationships, only:[:create, :destroy]
   
-  
+  #ログイン機能
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions',
@@ -18,6 +17,7 @@ Rails.application.routes.draw do
     delete "logout", :to => "users/sessions#destroy"
   end
   
+  #プロフィール用
   resources :users, only: [:edit, :update] do
     collection do
       get 'mypage', :to => 'users#show'
@@ -25,6 +25,8 @@ Rails.application.routes.draw do
       put 'mypage', :to => 'users#update' 
     end
   end
+  
+  #フォロー用
   resources :users do
     resource :relationships, only:[:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
@@ -32,5 +34,8 @@ Rails.application.routes.draw do
     get 'profile', :to => 'users#profile'
   end
   
+  #いいね機能
+  post 'like/:id' => 'likes#create', as: 'create_like'
+  delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
   
 end
