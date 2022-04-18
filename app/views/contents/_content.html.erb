@@ -6,6 +6,9 @@ contentを持っているユーザーの名前が取得できているのか　-
     <p class="card-text"><%= content.body %></p>
     <%= content.user.email %> 作成日：<%= content.created_at %>
     <hr>
+    <div id="likes_buttons_<%= content.id %>">
+      <%= render partial: 'likes/like', locals: {content: content} %>
+    </div>
     <%= link_to 'Edit', edit_content_path(content), class: "btn btn-outline-primary" %>
     <%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %>
   </div>
