@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: "home#index"
-  resources :contents
+  resources :contents do
+    get 'show', :to => 'contents#show'
+  end
   #resources :relationships, only:[:create, :destroy]
   
   #ログイン機能
