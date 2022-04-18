@@ -32,18 +32,22 @@ class ContentsController < ApplicationController
     @content.user_id = current_user.id
 
     if @content.save
-      @status = true
+      
+      redirect_to action: :index, flash:{ success: 'つぶやきに成功しました'}
     else
-      @status = false
+      
+      redirect_to action: :index, flash:{error: 'つぶやきに失敗しました'}
     end
   end
 
   # PATCH/PUT /contents/1
   def update
     if @content.update(content_params)
-      @status = true
+      
+      redirect_to action: :index, flash:{success: 'つぶやきを更新しました'}
     else
-      @status = false
+      
+      redirect_to action: :index, flash:{error: 'つぶやきの更新に失敗しました'}
     end
   end
 
