@@ -12,9 +12,11 @@
     <div id="likes_buttons_<%= content.id %>">
       <%= render partial: 'likes/like', locals: {content: content} %>
     </div>
+    <!--　indexからのアクションのみ、内容確認を表示させたい　-->
+    <% if action_name == "index" %>
+        <%= link_to '内容を確認', content_show_path(content), class: "btn btn-outline-primary" %>
+    <% end %>
     
-    <%= link_to '内容を確認', content_show_path(content), class: "btn btn-outline-primary" %>
 
   </div>
 </div>
-<!--　indexからのパーシャルのみ、内容確認を表示させたい　-->
