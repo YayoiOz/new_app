@@ -2,5 +2,5 @@
 
 <%= render 'form', content: @content %>
 
-<%= link_to 'Show', @content %> |
-<%= link_to 'Back', contents_path %>
+<%= link_to '戻る', content_show_path(@content) %> |
+<%= link_to '一覧に戻る', contents_path %>

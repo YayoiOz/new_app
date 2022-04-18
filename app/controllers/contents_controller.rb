@@ -13,6 +13,7 @@ class ContentsController < ApplicationController
   end
   
   def show
+    @content = Content.find(params[:content_id])
   end
 
   # GET /contents/new
@@ -22,6 +23,7 @@ class ContentsController < ApplicationController
 
   # GET /contents/1/edit
   def edit
+    
   end
 
   # POST /contents
