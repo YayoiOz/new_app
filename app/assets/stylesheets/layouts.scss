@@ -1,4 +1,4 @@
-/* 教材からコピペ */
+/* コピペ */
 body {
   margin: 0;
   font-family: Nunito, sans-serif;
@@ -44,7 +44,6 @@ body {
 .main{
   display: table-cell;
   width: 85%;
-  margin: 0;
   padding: 0;
 }
 .navigation h3{
@@ -53,34 +52,12 @@ body {
   background: #fff;
   color: #000;
   font-size: 12px;
-  text-align: left;
 }
-/*#menu h3:nth-of-type(1){ background: #000000; }*/
-
-.navigation ul{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  background: #fff;
-}
-/*#menu ul:nth-of-type(1){ border-color: #8d990f; }*/
-.navigation ul li{
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-/* link */
-.navigation ul li a{
-  display: block;
-  margin: 0;
-  padding: 8px 10px;
-  color: #333;
-  font-size: 12px;
-  text-align: left;
-  text-decoration: none;
-}
-.navigation li a:hover{ background: #eee; }
-/* #toggle{ display: none; } */
+  .menu ul{
+  li { 
+    list-style: none;
+    }
+  }
 
 /* ちいさめ画面　メニュー */
 @media only screen and (max-width: 1023px) {
@@ -88,120 +65,38 @@ body {
   .content{
     display: block;
     width: 100%;
-    margin: 0;
+    margin-top: 10px;
     padding: 0;
   }
   .navigation{
-    display: block;
+    position: sticky;
+    z-index: 2;
+    top: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
     width: 100%;
     background: #ffffff;
   }
   .main{
     display: block;
+    z-index: ｓｓ1;
     width: 100%;
-    margin: 0;
-    padding: 0; 
+    margin-top: 1em;
+    padding: 60; 
   }
-  .menu { 
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      background: white;
-      width: 100%;
-  }
-  .menu:after {
-    position: absolute;
-    content:"";
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: #d6cea3;
-  }
-  .navigation h3{
-    clear: both;
-    position: relative;
-    z-index: 9999;
-  }
-  .navigation ul{
-    margin-bottom: -1px;
-    border-left-width: 3px;
-    border-right-width: 3px;
-    border-right-style: solid;
-    background: #ebe7d2;
-  }
-  .navigation ul:before,
-  .navigation ul:after{
-    content: "";
-    display: table;
-  }
-  .navigation ul:after{ clear: both; }
-  .navigation ul{ *zoom: 1; }
-  .navigation ul li{
-    float: left;
-    width: 25%;
-    box-sizing: border-box;
-    border-right: 1px solid #d6cea3;
-    border-bottom: 1px solid #d6cea3;
-  }
-  .navigation ul li:nth-of-type(4n){ border-right: 0; }
-  .navigation ul li a{
+  .menu ul{
     text-align: center;
-    padding: 12px 0px;
+  li { 
+    display: inline-block;
+    list-style: none;
+    width: 100px;
+    }
   }
-  .navigation ul li a:hover{ background: #f5f4ea; }
-  
   /* 簡易プロフィールを隠す */
   .profile{ display: none; }
-  /*　トグルボタン　
-  
-  #toggle{
-    display: block;
-    position: relative;
-    width: 100%;
-    background: #222;
-  }
-  #toggle a{
-    display: block;
-    position: relative;
-    padding: 15px 0 10px;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-  }
-  #toggle:before{
-    display: block;
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    width: 20px;
-    height: 20px;
-    margin-top: -10px;
-    background: #fff;
-  }
-  #toggle a:before, #toggle a:after{
-    display: block;
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    width: 20px;
-    height: 4px;
-    background: #222;
-  }
-  #toggle a:before{ margin-top: -6px; }
-  #toggle a:after{ margin-top: 2px; }
-  */
 }
 
 @media only screen and (max-width: 767px) {
-  .navigation ul li{ width: 50%; }
-  .navigation ul li:nth-of-type(2n){ border-right: 0; }
 }
 @media only screen and (max-width: 479px) {
-.navigation ul li{
-    float: none;
-    width: 100%;
-  }
 }
