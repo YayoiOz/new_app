@@ -10,7 +10,7 @@
       <% end %>
     </div>
     <ul>
-      <li><%= link_to '登録情報', mypage_users_path %></li>
+      <li><%= link_to '登録情報', user_profile_path(current_user.id) %></li>
       <li><%= link_to 'つぶやく', new_content_path %></li>
       <li><a href="#">フレンド</a></li>
       <li><a href="#">お気に入り</a></li>

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def update
     set_user
     @user.update_without_password(user_params)
-    redirect_to mypage_users_path
+    redirect_to plofile_users_path
   end
   
   def show
