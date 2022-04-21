@@ -13,7 +13,14 @@
 <%= @user.profile %>
 <hr>
 <h3>フレンド</h3>
+<% if @user.id  == current_user.id %>
+<%= link_to "フォロー一覧", user_followings_path %>
+<%= link_to "フォロワー一覧", user_followers_path %>
+<hr>
+<%= link_to "編集する", plofile_edit_users_path %>
+<% else %>
 <%= render 'relationships/follow_form', user: @user %>
+<% end %>
 <hr>
 
 

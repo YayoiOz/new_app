@@ -22,9 +22,8 @@ Rails.application.routes.draw do
   #プロフィール用
   resources :users, only: [:edit, :update] do
     collection do
-      get 'mypage', :to => 'users#show'
-      get 'mypage/edit', :to => 'users#edit'
-      put 'mypage', :to => 'users#update' 
+      get 'plofile/edit', :to => 'users#edit'
+      put 'plofile', :to => 'users#update' 
     end
   end
   

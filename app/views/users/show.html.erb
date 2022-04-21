@@ -12,7 +12,9 @@
 <h3>プロフィール</h3>
 <%= @user.profile %>
 <hr>
-<h3>フレンド(未実装)</h3>
+<h3>フレンド</h3>
+<%= link_to "フォロー一覧", user_followings_path %>
+<%= link_to "フォロワー一覧", user_followers_path %>
 <hr>
 <%= link_to "編集する", mypage_edit_users_path %>
 

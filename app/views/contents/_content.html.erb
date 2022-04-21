@@ -1,11 +1,7 @@
 <div class="card mb-3">
   <div class="card-body">
     <h5 class="card-title">
-      <% if content.user_id == current_user.id %>
-      <%= link_to content.user.name, mypage_users_path %>
-      <% else %>
       <%= link_to content.user.name, user_profile_path(content.user.id) %>
-      <% end %></h5>
     <p class="card-text"><%= content.body %></p>
     <%= content.user.email %> 作成日：<%= content.created_at %>
     <hr>
