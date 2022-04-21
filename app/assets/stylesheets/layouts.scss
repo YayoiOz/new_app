@@ -1,3 +1,32 @@
+
+/* コピペ */
+body {
+  margin: 0;
+  font-family: Nunito, sans-serif;
+  font-size: .9rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #212529;
+  text-align: left;
+  background-color: #fff
+}
+
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(2.19rem + 2px);
+  padding: .375rem .75rem;
+  font-size: .9rem;
+  line-height: 1.6;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+
 /* PC メニュー */
 /* classはapplication・header参照 */
 .split {
@@ -9,25 +38,25 @@
   padding: 10px;
   width: 20%;
 }
-.split-menu{
-  background: #fef6e4;
-  color: #001858;
-  position: relative;
+
+.main{
+  display: table-cell;
+  width: 85%;
+  padding: 0;
 }
-.menu-inner{
-  height: 100%;
-  padding: 50px 0 0 0;
-  position: fixed;
-  width: 25%;
-  h3{
-    font-size: 12px;
+.navigation h3{
+  margin: 0;
+  padding: 8px 5px 5px;
+  background: #fff;
+  color: #000;
+  font-size: 12px;
+}
+  .menu ul{
+  li { 
+    list-style: none;
+    }
   }
-}
-.split-main{
-  background: #fef6e4;
-  color: #001858;
-  width: 70%;
-}
+
 
 /* 画面1023px時　メニュー */
 @media only screen and (max-width: 1023px) {
@@ -50,25 +79,43 @@
   .split-main{
     display: block;
     width: 100%;
-    margin: 0;
-    padding: 100px 0 0 0;
+
+    margin-top: 10px;
+    padding: 0;
+  }
+  .navigation{
+    position: sticky;
+    z-index: 2;
+    top: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    background: #ffffff;
+
   }
   .main{
     display: block;
+    z-index: ｓｓ1;
     width: 100%;
-    margin: 0;
-    padding: 0; 
+
+    margin-top: 1em;
+    padding: 60; 
   }
+  .menu ul{
+    text-align: center;
+  li { 
+    display: inline-block;
+    list-style: none;
+    width: 100px;
+    }
+  }
+  /* 簡易プロフィールを隠す */
+  .profile{ display: none; }
+
 }
 
 @media only screen and (max-width: 767px) {
-  .navigation ul li{ width: 50%; }
-  .navigation ul li:nth-of-type(2n){ border-right: 0; }
 }
 @media only screen and (max-width: 479px) {
-.navigation ul li{
-    float: none;
-    width: 100%;
-  }
 }
 

@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+    <% if current_user.like_by?(content.id) %>
+    <td><%= link_to 'LIKEをはずす', destroy_like_path(content), method: :DELETE, remote: true %> <%= content.likes.count %></td>
+     <% else %>
+    <td><%= link_to 'いいね', create_like_path(content), method: :POST, remote: true %> <%= content.likes.count %></td>
+ <% end %>
+<% end %>

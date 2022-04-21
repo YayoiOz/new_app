@@ -7,15 +7,17 @@
       <h3>プロフィール：<%= current_user.profile %></h3>
       <% end %>
     </div>
-    
-      <%= link_to '登録情報', mypage_users_path %>
-      <%= link_to 'つぶやく', new_content_path %>
-      <a href="#">フレンド</a>
-      <a href="#">お気に入りタグ</a>
-      <a href="#">トレンド</a>
-      <a href="#">検索</a>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-    
+
+    <ul>
+      <li><%= link_to '登録情報', mypage_users_path %></li>
+      <li><%= link_to 'つぶやく', new_content_path %></li>
+      <li><a href="#">フレンド</a></li>
+      <li><a href="#">お気に入り</a></li>
+      <li><a href="#">トレンド</a></li>
+      <li><a href="#">検索</a></li>
+      <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+    </ul>
+
     
   </div>
 </div>
