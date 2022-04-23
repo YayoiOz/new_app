@@ -17,6 +17,7 @@
       <div class="row">
         <% @comments.each do |comment| %>
         <div class="offset-md-5 col-md-5">
+          <p class="h3"><%= comment.user.name if comment.user %></p>
           <p class="h3"><%= comment.combody %></p>
           <label><%= comment.created_at %></label>
         </div>
