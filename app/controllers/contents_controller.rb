@@ -14,6 +14,8 @@ class ContentsController < ApplicationController
   
   def show
     @content = Content.find(params[:content_id])
+    @comments = @content.comments
+    @comment = @comments.new
   end
 
   # GET /contents/new
