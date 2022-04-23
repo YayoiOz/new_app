@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: "home#index"
   resources :contents do
+    resources :comments, only:[:create]
     get 'show', :to => 'contents#show'
   end
   #resources :relationships, only:[:create, :destroy]

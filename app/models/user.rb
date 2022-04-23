@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :profile, length: { maximum: 200 }
   
   has_many :contents
+  has_many :comments
   has_many :likes
   
   #follow(rerationship)用の記述
