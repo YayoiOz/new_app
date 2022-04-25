@@ -1,18 +1,17 @@
-<div class="pos-f-t">
-  <nav class="navbar navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </nav>
-</div>
-  <div class="collapse" id="navbarToggleExternalContent">
-    <div class="bg-dark p-4">
-      <h5 class="text-white h4">Collapsed content</h5>
-      <span class="text-muted">Toggleable via the navbar brand.</span>
-    </div>
+<div class="top-navi">
+<nav class="navbar navbar-light bg-light fixed-top">
+  <a class="navbar-brand" href="#">ツブログ</a>
+  <!-- ハンバーガー -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- ナビゲーションメニュー -->
+  <div class="collapse navbar-collapse" id="navbarNav">
+  <%= render 'layouts/menu' %>
   </div>
+</nav>
+</div>
 
-<!--
 <div class="menu-inner">
   <div class="menu">
     <div class="profile">
@@ -22,42 +21,8 @@
       <p>プロフィール：<%= current_user.profile %></p>
       <% end %>
     </div>
-    <div class="navigation">
-      <span class="fas fa-bars naviTop"></span>
+    <div class="left-menu">
+      <%= render 'layouts/menu' %>
     </div>
-      <div class="nav-menu">
-        <ul>
-          <li><i class="fa fa-user" aria-hidden="true"></i><%= link_to '登録情報', user_profile_path(current_user.id) %></li>
-          <li><i class="fa fa-comment" aria-hidden="true"></i><%= link_to 'つぶやく', new_content_path %></li>
-          <li><i class="fa fa-users" aria-hidden="true"></i><a href="#">フレンド</a></li>
-          <li><i class="fa fa-heart" aria-hidden="true"></i><a href="#">お気に入り</a></li>
-          <li><i class="fa fa-line-chart" aria-hidden="true"></i><a href="#">トレンド</a></li>
-          <li><i class="fa fa-search" aria-hidden="true"></i><a href="#">検索</a></li>
-          <li><i class="fa fa-sign-out " aria-hidden="true"></i><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-        </ul>
-      </div>
   </div>
 </div>
-<script>
-  /* global $ */
-$('.naviTop').click(function(){
-    // メニューバーが開かれているなら
-    if($('nav').hasClass('open')){
-      $('nav').removeClass('open');
-      $('nav').slideDown();
-
-      // Font Awesomeを×にする
-      $('.navigation').children('span').removeClass().addClass('fas fa-times naviTop');
-
-    }
-    // メニューバーが開かれていないなら
-    else{
-      $('nav').addClass('open');
-      $('nav').slideUp();
-
-      // Font Awesomeをメニューバーにする
-      $('.navigation').children('span').removeClass().addClass('fas fa-bars naviTop');
-    }
-});
-</script>
--->

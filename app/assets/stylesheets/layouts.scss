@@ -19,8 +19,8 @@
     list-style: none;
     }
   }
-/* バーを隠す */
-.navigation{ display: none;}
+/* bootstrap naviバーを隠す */
+.top-navi{ display: none;}
 
 /* 画面1023px時　メニュー */
 @media only screen and (max-width: 1023px) {
@@ -34,11 +34,8 @@
         display: block;
         width: auto;
     }
-    .menu-inner{
-        position: fixed;
-        width: auto;
-    }
-    
+  .menu-inner{display: none}
+  .top-navi{ display: block}
   /* main content */
   .split-main{
     display: block;
@@ -46,66 +43,12 @@
     margin-top: 10px;
     padding: 60;
   }
-  .menu{
-    position: sticky;
-    z-index: 3;
-    top: 0;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 100%;
-    background: #ffffff;
-  }
-  .navigation{
-    display: block;
-  }
-  .nav-menu{
-    text-align: center;
-    z-index: 2;
-  li { 
-    list-style: none;
-    width: 100px;
-    }
-  }
-}
-  .main{
-    display: block;
-    z-index: 1;
-    width: 100%;
-    margin-top: 1em;
-    padding: 60; 
-  }
 
+}
 @media only screen and (max-width: 767px) {
 }
 @media only screen and (max-width: 479px) {
 }
 
 
-/* コピペ 
-body {
-  margin: 0;
-  font-family: Nunito, sans-serif;
-  font-size: .9rem;
-  font-weight: 400;
-  line-height: 1.6;
-  color: #212529;
-  text-align: left;
-  background-color: #fff
-}
 
-
-.form-control {
-  display: block;
-  width: 100%;
-  height: calc(2.19rem + 2px);
-  padding: .375rem .75rem;
-  font-size: .9rem;
-  line-height: 1.6;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: .25rem;
-  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
-}
-*/
