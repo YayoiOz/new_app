@@ -1,3 +1,85 @@
+/* PC メニュー */
+/* classはapplication・header参照 */
+.split {
+  display: table;
+  width: 100%;
+}
+.split-item  {
+  display: table-cell;
+  padding: 10px;
+  width: 250;
+}
+.main{
+  display: table-cell;
+  width: auto;
+  padding: 60;
+}
+.menu ul{
+  li { 
+    list-style: none;
+    }
+  }
+/* バーを隠す */
+.navigation{ display: none;}
+
+/* 画面1023px時　メニュー */
+@media only screen and (max-width: 1023px) {
+    /* 簡易プロフィールを隠す */
+  .profile{ display: none; }
+  /* HEADERを上に取り付けする */
+    .split{
+        display: block;
+    }
+    .split-item{
+        display: block;
+        width: auto;
+    }
+    .menu-inner{
+        position: fixed;
+        width: auto;
+    }
+    
+  /* main content */
+  .split-main{
+    display: block;
+    width: auto;
+    margin-top: 10px;
+    padding: 60;
+  }
+  .menu{
+    position: sticky;
+    z-index: 3;
+    top: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    background: #ffffff;
+  }
+  .navigation{
+    display: block;
+  }
+  .nav-menu{
+    text-align: center;
+    z-index: 2;
+  li { 
+    list-style: none;
+    width: 100px;
+    }
+  }
+}
+  .main{
+    display: block;
+    z-index: 1;
+    width: 100%;
+    margin-top: 1em;
+    padding: 60; 
+  }
+
+@media only screen and (max-width: 767px) {
+}
+@media only screen and (max-width: 479px) {
+}
+
 
 /* コピペ 
 body {
@@ -27,86 +109,3 @@ body {
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
 */
-/* PC メニュー */
-/* classはapplication・header参照 */
-.split {
-  display: table;
-  width: 100%;
-}
-.split-item  {
-  display: table-cell;
-  padding: 10px;
-  width: 250;
-}
-.main{
-  display: table-cell;
-  width: auto;
-  padding: 60;
-}
-.menu ul{
-  li { 
-    list-style: none;
-    }
-  }
-
-
-/* 画面1023px時　メニュー */
-@media only screen and (max-width: 1023px) {
-    /* 簡易プロフィールを隠す */
-  .profile{ display: none; }
-  /* HEADERを上に取り付けする */
-    .split{
-        display: block;
-    }
-    .split-item{
-        display: block;
-        width: auto;
-    }
-    .menu-inner{
-        position: fixed;
-        width: auto;
-    }
-    
-  /* main content test */
-  .split-main{
-    display: block;
-    width: auto;
-    margin-top: 10px;
-    padding: 60;
-  }
-  .navigation{
-    position: sticky;
-    z-index: 2;
-    top: 0;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 100%;
-    background: #ffffff;
-
-  }
-  .main{
-    display: block;
-    z-index: ｓｓ1;
-    width: 100%;
-
-    margin-top: 1em;
-    padding: 60; 
-  }
-  .menu ul{
-    text-align: center;
-  li { 
-    display: inline-block;
-    list-style: none;
-    width: 100px;
-    }
-  }
-  /* 簡易プロフィールを隠す */
-  .profile{ display: none; }
-
-}
-
-@media only screen and (max-width: 767px) {
-}
-@media only screen and (max-width: 479px) {
-}
-
