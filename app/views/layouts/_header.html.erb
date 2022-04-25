@@ -2,20 +2,20 @@
   <div class="menu">
     <div class="profile">
       <% if current_user %>
-      <h3>プロフィール</h3>
-      <h3>ユーザー名：<%= current_user.name %></h3>
-      <h3>プロフィール：<%= current_user.profile %></h3>
+      <p>プロフィール</p>
+      <p>ユーザー名：<%= current_user.name %></p>
+      <p>プロフィール：<%= current_user.profile %></p>
       <% end %>
     </div>
 
     <ul>
-      <li><%= link_to '登録情報', user_profile_path(current_user.id) %></li>
-      <li><%= link_to 'つぶやく', new_content_path %></li>
-      <li><a href="#">フレンド</a></li>
-      <li><a href="#">お気に入り</a></li>
-      <li><a href="#">トレンド</a></li>
-      <li><a href="#">検索</a></li>
-      <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+      <li><i class="fa fa-user" aria-hidden="true"></i><%= link_to '登録情報', user_profile_path(current_user.id) %></li>
+      <li><i class="fa fa-comment" aria-hidden="true"></i><%= link_to 'つぶやく', new_content_path %></li>
+      <li><i class="fa fa-users" aria-hidden="true"></i><a href="#">フレンド</a></li>
+      <li><i class="fa fa-heart" aria-hidden="true"></i><a href="#">お気に入り</a></li>
+      <li><i class="fa fa-line-chart" aria-hidden="true"></i><a href="#">トレンド</a></li>
+      <li><i class="fa fa-search" aria-hidden="true"></i><a href="#">検索</a></li>
+      <li><i class="fa fa-sign-out " aria-hidden="true"></i><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
     </ul>
 
     
