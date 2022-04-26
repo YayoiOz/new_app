@@ -1,4 +1,3 @@
-<p>
     <%= render partial: @content %>
     <% if @content.user_id == current_user.id %>
     <%= link_to 'Edit', edit_content_path(@content), class: "btn btn-outline-primary" %>
@@ -7,38 +6,19 @@
     <%= link_to '一覧に戻る', contents_path %>
     <% end %>
     
-    <div class="offset-1 col-11">
-      <hr class="w-100">
-      <h3 class="float-left">comments</h3>
-    </div>
-    <div class="offset-1 col-10">
-      <!-- レビューを実装する箇所になります -->
-      <div class="row">
+    <!-- レビューを実装する箇所になります -->
+    <hr class="comment">
+    <h3>comments</h3>
         <% @comments.each do |comment| %>
-        <div class="offset-md-5 col-md-5">
-          <p class="h3"><%= comment.user.name if comment.user %></p>
-          <p class="h3"><%= comment.combody %></p>
-          <label><%= comment.created_at %></label>
-        </div>
+              <p class="h3"><%= comment.user.name if comment.user %></p>
+              <p class="h3"><%= comment.combody %></p>
+              <label><%= comment.created_at %></label>
+              <hr>
         <% end %>
-      </div>
- 
       <% if user_signed_in? %>
-        <div class="row">
-          <div class="offset-md-5 col-md-5">
             <%= form_with model: @comment, url: content_comments_path(@content) do |f| %>
               <%= f.text_area :combody, class: "form-control m-2" %>
-              <%= f.submit "comment create" , class:"btn samazon-submit-button ml-2"%>
+              <%= f.submit "comment create" , class:"btn tsublog-submit-button ml-2"%>
             <% end %>
-          </div>
-        </div>
       <% end %>
-    </div>
-  </div>
-</p>
-<!--このページでやりたいこと<br>
-1．本記事（返信元）を表示↑<br>
-2．返信ボタンを用意<br>
-3．返信で書かれた記事を表示<br>
-返信記事の抽出をcontrollerにdef showで記述、<br>
-本記事の下にeach　doで表示 -->
+
