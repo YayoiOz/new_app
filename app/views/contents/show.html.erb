@@ -6,13 +6,13 @@
     <%= link_to '一覧に戻る', contents_path %>
     <% end %>
     
-    <!-- レビューを実装する箇所になります -->
+    <!-- comment -->
     <hr class="comment">
     <h5>comments</h5>
         <% @comments.each do |comment| %>
               <p ><%= comment.user.name if comment.user %></p>
               <p ><%= comment.combody %></p>
-              <label><%= comment.created_at %></label>
+              <p><%= comment.created_at %></p>
               <hr>
         <% end %>
       <% if user_signed_in? %>
