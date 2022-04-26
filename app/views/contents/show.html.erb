@@ -8,10 +8,10 @@
     
     <!-- レビューを実装する箇所になります -->
     <hr class="comment">
-    <h3>comments</h3>
+    <h5>comments</h5>
         <% @comments.each do |comment| %>
-              <p class="h3"><%= comment.user.name if comment.user %></p>
-              <p class="h3"><%= comment.combody %></p>
+              <p ><%= comment.user.name if comment.user %></p>
+              <p ><%= comment.combody %></p>
               <label><%= comment.created_at %></label>
               <hr>
         <% end %>
