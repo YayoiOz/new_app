@@ -1,24 +1,11 @@
-    <%= render partial: @content %>
-    <% if @content.user_id == current_user.id %>
+<%= render partial: @content %>
+
+<% if @content.user_id == current_user.id %>
     <%= link_to 'Edit', edit_content_path(@content), class: "btn btn-outline-primary" %>
     <%= link_to 'Destroy', @content, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %>
-    <% else %>
+<% else %>
     <%= link_to '一覧に戻る', contents_path %>
-    <% end %>
+<% end %>
     
-    <!-- comment -->
-    <hr class="comment">
-    <h5>comments</h5>
-        <% @comments.each do |comment| %>
-              <p ><%= comment.user.name if comment.user %></p>
-              <p ><%= comment.combody %></p>
-              <p><%= comment.created_at %></p>
-              <hr>
-        <% end %>
-      <% if user_signed_in? %>
-            <%= form_with model: @comment, url: content_comments_path(@content) do |f| %>
-              <%= f.text_area :combody, class: "form-control m-2" %>
-              <%= f.submit "comment create" , class:"btn tsublog-submit-button ml-2"%>
-            <% end %>
-      <% end %>
+<%= render 'comments/comment' %>
 
