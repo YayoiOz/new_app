@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_23_112218) do
+ActiveRecord::Schema.define(version: 2022_04_27_063021) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2022_04_23_112218) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tag_id"
+    t.index ["tag_id"], name: "index_contents_on_tag_id"
     t.index ["user_id"], name: "index_contents_on_user_id"
   end
 
@@ -38,6 +40,22 @@ ActiveRecord::Schema.define(version: 2022_04_23_112218) do
   create_table "relationships", force: :cascade do |t|
     t.integer "follow_id"
     t.integer "target_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tag_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_tag_users_on_tag_id"
+    t.index ["user_id"], name: "index_tag_users_on_user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_name"
+    t.integer "sequence"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
