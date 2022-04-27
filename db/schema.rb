@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2022_04_27_063021) do
   create_table "tag_users", force: :cascade do |t|
     t.integer "user_id"
     t.integer "tag_id"
+    t.integer "sequence"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tag_id"], name: "index_tag_users_on_tag_id"
@@ -55,7 +56,6 @@ ActiveRecord::Schema.define(version: 2022_04_27_063021) do
 
   create_table "tags", force: :cascade do |t|
     t.string "tag_name"
-    t.integer "sequence"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
