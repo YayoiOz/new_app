@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :contents
   has_many :comments
   has_many :likes
+  has_many :tag_users
+  has_many :tags, through: :tag_users
   
   #follow(rerationship)用の記述
   has_many :relationships, class_name: "Relationship", foreign_key: "follow_id", dependent: :destroy
