@@ -7,34 +7,7 @@
     <%= link_to '一覧に戻る', contents_path %>
     <% end %>
     
-    <div class="offset-1 col-11">
-      <hr class="w-100">
-      <h3 class="float-left">comments</h3>
-    </div>
-    <div class="offset-1 col-10">
-      <!-- レビューを実装する箇所になります -->
-      <div class="row">
-        <% @comments.each do |comment| %>
-        <div class="offset-md-5 col-md-5">
-          <p class="h3"><%= comment.user.name if comment.user %></p>
-          <p class="h3"><%= comment.combody %></p>
-          <label><%= comment.created_at %></label>
-        </div>
-        <% end %>
-      </div>
- 
-      <% if user_signed_in? %>
-        <div class="row">
-          <div class="offset-md-5 col-md-5">
-            <%= form_with model: @comment, url: content_comments_path(@content) do |f| %>
-              <%= f.text_area :combody, class: "form-control m-2" %>
-              <%= f.submit "comment create" , class:"btn samazon-submit-button ml-2"%>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+    <%= render 'comments/comment' %>
 </p>
 <!--このページでやりたいこと<br>
 1．本記事（返信元）を表示↑<br>
