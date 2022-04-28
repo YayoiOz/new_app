@@ -6,6 +6,14 @@ Rails.application.routes.draw do
   end
   #resources :relationships, only:[:create, :destroy]
   
+  #tag機能
+  resources :tag_users do
+    member do
+      get :move_higher
+      get :move_lower
+    end
+  end
+  
   #ログイン機能
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
