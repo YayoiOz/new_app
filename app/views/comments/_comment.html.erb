@@ -1,11 +1,12 @@
-      <h3>comments</h3>
-      <!-- レビューを実装する箇所になります -->
+    <!-- comment -->
+    <hr class="comment">
+    <h5>comments</h5>
         <% @comments.each do |comment| %>
-          <p class="h6"><%= comment.user.name if comment.user %></p>
-          <p class="h6"><%= comment.combody %></p>
-          <label><%= comment.created_at %></label>
+              <p ><%= comment.user.name if comment.user %></p>
+              <p ><%= comment.combody %></p>
+              <p><%= comment.created_at %></p>
+              <hr>
         <% end %>
-
       <% if user_signed_in? %>
             <%= form_with model: @comment, url: content_comments_path(@content) do |f| %>
               <%= f.text_area :combody, class: "form-control m-2" %>
