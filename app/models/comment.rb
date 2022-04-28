@@ -1,6 +1,7 @@
 class Comment < ApplicationRecord
     belongs_to :content
     belongs_to :user
+    validates :combody, presence: true
     
     validates :content, presence: true
     
