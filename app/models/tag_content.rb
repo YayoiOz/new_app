@@ -1,0 +1,2 @@
+class TagContent < ApplicationRecord
+end

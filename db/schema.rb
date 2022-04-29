@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_27_063021) do
+ActiveRecord::Schema.define(version: 2022_04_29_122510) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -25,8 +25,6 @@ ActiveRecord::Schema.define(version: 2022_04_27_063021) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "tag_id"
-    t.index ["tag_id"], name: "index_contents_on_tag_id"
     t.index ["user_id"], name: "index_contents_on_user_id"
   end
 
@@ -42,6 +40,15 @@ ActiveRecord::Schema.define(version: 2022_04_27_063021) do
     t.integer "target_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tag_contents", force: :cascade do |t|
+    t.integer "content_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["content_id"], name: "index_tag_contents_on_content_id"
+    t.index ["tag_id"], name: "index_tag_contents_on_tag_id"
   end
 
   create_table "tag_users", force: :cascade do |t|
