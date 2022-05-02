@@ -30,7 +30,11 @@ body {
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
 
-
+.editbody{
+  display: block;
+  width: 80%;
+  
+}
 
 .tsublog-login-input {
   border-radius: 2px;
