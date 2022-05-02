@@ -56,6 +56,7 @@ class ContentsController < ApplicationController
   # DELETE /contents/1
   def destroy
     @content.destroy
+    redirect_to action: :index
   end
 
   private
