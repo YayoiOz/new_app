@@ -33,7 +33,9 @@ body {
 .editbody{
   display: block;
   width: 80%;
-  
+  .field{
+    width: 400px;
+  }
 }
 
 .tsublog-login-input {
