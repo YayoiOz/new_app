@@ -1,7 +1,7 @@
 class Content < ApplicationRecord
   belongs_to :user
   
-  has_many :tag, through: :tag_contents
+  has_many :tags, through: :tag_contents
   has_many :tag_contents, dependent: :destroy
   
   has_many :likes
@@ -14,37 +14,27 @@ class Content < ApplicationRecord
   end
   
   def save_tags(tags)
-    #タグをスペース区切りで分割・配列化
-    #　空白対応のために+を入れている
-    tag_list = tags.splot(/[[:blank:]]+/)
-    
-    current_tags = self.tags.pluck(:name)
-    
-    #　1）元々自分に紐付いていたタグと投稿されたタグの差分を抽出
-    #　　-- 記事更新時に削除されたタグ
-    old_tags =current_tags - tag_list
-    
-    #　2）投稿されたタグと元々自分に紐付いていたタグの差分を抽出
-    # 　　-- 新規に追加されたタグ
-    new_tags = tag_list - current_tags
-    p current_tags
-    
-    #tag_content から　1を削除
-    # tagsテーブルから該当のタグを探して削除
-    old_tags.each do |old|
-      #中間テーブルの中のidを削除してfind_byでid検索
-      self.tags.delete Tag.find_by(name: old)
-    end
-    
-    #テーブルから　2のタグを探して中間テーブルにid追加
-    new_tags.each do |new|
-      # find_or_create_by : https://railsdoc.com/page/find_or_create_by
-      new_content_tag = Tag.find_or_create_by(name: new)
+    tag_list.each do |tag|
+      # 受け取った値を小文字に変換して、DBを検索して存在しない場合は
+      # find_tag に nil が代入され　nil となるのでタグの作成が始まる
+      unless find_tag = Tag.find_by(tag_name: tag.downcase)
+        begin
+          # create メソッドでタグの作成
+          # create! としているのは、保存が成功しても失敗してもオブジェクト
+          # を返してしまうため、例外を発生させたい
+          self.tags.create!(tag_name: tag)
+
+        # 例外が発生すると rescue 内の処理が走り nil となるので
+        # 値は保存されないで次の処理に進む
+        rescue
+          nil
+        end
+      else
+            # DB にタグが存在した場合、中間テーブルにブログ記事とタグを紐付けている
+        ArticleTagRelation.create!(content_id: self.id, tag_id: find_tag.id)
+      end
       
-      #配列追加のようにレコードを渡すことで新規レコード作成
-      self.tags << new_content_tag
     end
-    
   end
 
 end

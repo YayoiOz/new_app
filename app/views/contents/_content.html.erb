@@ -4,6 +4,8 @@
       <h6><%= link_to content.user.name, user_profile_path(content.user.id) %></h6>
     <p class="card-text"><%= content.body %></p>
     <%= content.user.email %> 作成日：<%= content.created_at %>
+    
+
     <hr>
     <div id="likes_buttons_<%= content.id %>">
       <%= render partial: 'likes/like', locals: {content: content} %>

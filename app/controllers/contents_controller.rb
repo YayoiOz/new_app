@@ -9,13 +9,16 @@ class ContentsController < ApplicationController
     #コンテンツテーブルから全部のデータを引っ張ってくる
     #@contents = Content.all
     #最終目標：current_userとtarget_idのユーザーのコンテンツを降順で表示
+    @tag_list = Tag.all
     @contents = Content.where(user_id: [current_user.id, *current_user.following_ids]).order(created_at: :desc)
+    #@content = current_user.content.new #ビューのform_withのmodelに使う
   end
   
   def show
     @content = Content.find(params[:content_id])
     @comments = @content.comments
     @comment = @comments.new
+    @content_tags = @content.tag
   end
 
   # GET /contents/new
@@ -32,10 +35,10 @@ class ContentsController < ApplicationController
   def create
     @content = current_user.contents.new(content_params)
     @content.user_id = current_user.id
-
+    tag_list = tag_params[:content][:tag_name].split(nil)
     if @content.save
       #タグの保存
-      @content.save_tags(params[:content][:tag])
+      @content.save_tag(tag_list)
       #トップへリダイレクト
       redirect_to action: :index, flash:{ success: 'つぶやきに成功しました'}
     else
@@ -70,7 +73,10 @@ class ContentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def content_params
-      params.require(:content).permit(:user_id, :body)
+      params.require(:content).permit(:user_id, :body, :tag_name)
     end
+    #def tag_params
+    #  params.require(:content).permit(:tag_name)
+    #end
     
 end
