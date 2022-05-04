@@ -34,28 +34,31 @@ class ContentsController < ApplicationController
     @content.user_id = current_user.id
 
     if @content.save
-      
+      #タグの保存
+      @content.save_tags(params[:content][:tag])
+      #トップへリダイレクト
       redirect_to action: :index, flash:{ success: 'つぶやきに成功しました'}
     else
       
-      redirect_to action: :index, flash:{error: 'つぶやきに失敗しました'}
+      render :new
     end
   end
 
   # PATCH/PUT /contents/1
   def update
     if @content.update(content_params)
-      
+      @content.save_tags(params[:content][:tag])
       redirect_to action: :index, flash:{success: 'つぶやきを更新しました'}
     else
       
-      redirect_to action: :index, flash:{error: 'つぶやきの更新に失敗しました'}
+      render :edit
     end
   end
 
   # DELETE /contents/1
   def destroy
     @content.destroy
+    redirect_to action: :index
   end
 
   private
@@ -67,7 +70,7 @@ class ContentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def content_params
-      params.require(:content).permit(:user_id, :body, tag_ids:[])
+      params.require(:content).permit(:user_id, :body)
     end
     
 end

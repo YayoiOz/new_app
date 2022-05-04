@@ -30,6 +30,20 @@ class Content < ApplicationRecord
     p current_tags
     
     #tag_content から　1を削除
+    # tagsテーブルから該当のタグを探して削除
+    old_tags.each do |old|
+      #中間テーブルの中のidを削除してfind_byでid検索
+      self.tags.delete Tag.find_by(name: old)
+    end
+    
+    #テーブルから　2のタグを探して中間テーブルにid追加
+    new_tags.each do |new|
+      # find_or_create_by : https://railsdoc.com/page/find_or_create_by
+      new_content_tag = Tag.find_or_create_by(name: new)
+      
+      #配列追加のようにレコードを渡すことで新規レコード作成
+      self.tags << new_content_tag
+    end
     
   end
 
