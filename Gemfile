@@ -72,3 +72,4 @@ gem 'jquery-rails'
 gem 'devise'
 
 gem 'acts_as_list'
+gem 'pry-rails'
