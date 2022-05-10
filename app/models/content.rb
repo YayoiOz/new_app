@@ -1,8 +1,8 @@
 class Content < ApplicationRecord
   belongs_to :user
   
-  has_many :tags, through: :tag_contents
   has_many :tag_contents, dependent: :destroy
+  has_many :tags, through: :tag_contents
   
   has_many :likes
   has_many :comments
