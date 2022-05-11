@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def update
     set_user
     @user.update_without_password(user_params)
-    redirect_to plofile_users_path
+    redirect_to root_path
   end
   
   def show
@@ -21,11 +21,11 @@ class UsersController < ApplicationController
   
   private
     def set_user
-      @user =current_user
+      @user = current_user
     end
 
     def user_params
-      params.permit(:name, :email, :profile, :password, :password_confirmation)
+      params.permit(:name, :email, :profile, :avatar, :password, :password_confirmation)
     end
   
 end

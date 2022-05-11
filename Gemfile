@@ -73,3 +73,7 @@ gem 'devise'
 
 gem 'acts_as_list'
 gem 'pry-rails'
+
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
+gem 'carrierwave'

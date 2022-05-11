@@ -31,6 +31,9 @@ class Content < ApplicationRecord
           puts "=========================="
           
           Tag.create(tag_name: tag)
+          #この下で中間テーブルを作成しようとすると先にリダイレクトが入ってしまう
+          TagContent.create!(content_id: self.id, tag_id: tag.attributes['id'])
+          puts "=========================="
 
         # 例外が発生すると rescue 内の処理が走り nil となるので
         # 値は保存されないで次の処理に進む
@@ -39,7 +42,8 @@ class Content < ApplicationRecord
         end
       else
             # DB にタグが存在した場合、中間テーブルにブログ記事とタグを紐付けている
-        ContentTagRelation.create!(content_id: self.id, tag_id: find_tag.id)
+        TagContent.create!(content_id: self.id, tag_id: find_tag.id)
+        
       end
       
     end
