@@ -10,7 +10,7 @@
 <%= @user.name %>
 <hr>
 <% if @user.avatar? %>
-<%= @user.name %>
+<%= image_tag @user.avatar.url %>
 <% end %>
 <hr>
 <h3>プロフィール</h3>

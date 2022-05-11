@@ -45,7 +45,8 @@
           <div class="collapse show userAvatar">
             <h3 class="tsublog-edit-user-info-value">
               <% if @user.avatar? %>
-              <%= image_tag @user.avatar.url %>
+                <%= image_tag @user.avatar.url %>
+              <% else %>
               <% end %></h3>
           </div>
           <div class="collapse editUserAvatar">
