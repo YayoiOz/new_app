@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :profile, length: { maximum: 200 }
   
+  #Profile画像の設定
   mount_uploader :avatar, AvatarUploader
   
   has_many :contents
