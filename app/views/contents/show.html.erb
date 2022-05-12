@@ -1,4 +1,9 @@
 <%= render partial: @content %>
+<hr>
+<% @content.tags.each do |tag| %>
+  <%= tag_name %>
+<% end %>
+
 
 <% if @content.user_id == current_user.id %>
     <%= link_to 'Edit', edit_content_path(@content), class: "btn btn-outline-primary" %>

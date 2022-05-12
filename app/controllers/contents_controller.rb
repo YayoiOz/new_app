@@ -10,12 +10,14 @@ class ContentsController < ApplicationController
     #@contents = Content.all
     #最終目標：current_userとtarget_idのユーザーのコンテンツを降順で表示
     @contents = Content.where(user_id: [current_user.id, *current_user.following_ids]).order(created_at: :desc)
+    #@content = current_user.content.new #ビューのform_withのmodelに使う
   end
   
   def show
     @content = Content.find(params[:content_id])
     @comments = @content.comments
     @comment = @comments.new
+    #@tags = @content.tag_contents.tags
   end
 
   # GET /contents/new
@@ -32,24 +34,27 @@ class ContentsController < ApplicationController
   def create
     @content = current_user.contents.new(content_params)
     @content.user_id = current_user.id
-
+    tag_list = tag_params[:tag_name].split(nil)
     if @content.save
-      
+      #タグの保存
+      @content.save_tags(tag_list)
+      #トップへリダイレクト
       redirect_to action: :index, flash:{ success: 'つぶやきに成功しました'}
     else
       
-      redirect_to action: :index, flash:{error: 'つぶやきに失敗しました'}
+      render :new
     end
   end
 
   # PATCH/PUT /contents/1
   def update
+    tag_list = tag_params[:tag_name].split(nil)
     if @content.update(content_params)
-      
+      @content.save_tags(tag_list)
       redirect_to action: :index, flash:{success: 'つぶやきを更新しました'}
     else
       
-      redirect_to action: :index, flash:{error: 'つぶやきの更新に失敗しました'}
+      render :edit
     end
   end
 
@@ -68,6 +73,10 @@ class ContentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def content_params
-      params.require(:content).permit(:user_id, :body)
+      params.require(:content).permit(:user_id, :body, tag_ids:[])
     end
+    def tag_params
+      params.require(:content).permit(:tag_name)
+    end
+    
 end

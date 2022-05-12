@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
   root to: "home#index"
+
   resources :contents do
     resources :comments, only:[:create]
     get 'show', :to => 'contents#show'
   end
   #resources :relationships, only:[:create, :destroy]
+  
+  #tag機能
+  resources :tag_users do
+    member do
+      get :move_higher
+      get :move_lower
+    end
+  end
   
   #ログイン機能
   devise_for :users, :controllers => {

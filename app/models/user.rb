@@ -6,9 +6,14 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :profile, length: { maximum: 200 }
   
+  #Profile画像の設定
+  mount_uploader :avatar, AvatarUploader
+  
   has_many :contents
   has_many :comments
   has_many :likes
+  has_many :tag_users
+  has_many :tags, through: :tag_users
   
   #follow(rerationship)用の記述
   has_many :relationships, class_name: "Relationship", foreign_key: "follow_id", dependent: :destroy

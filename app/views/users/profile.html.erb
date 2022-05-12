@@ -9,6 +9,10 @@
 <h3>ユーザー名</h3>
 <%= @user.name %>
 <hr>
+<% if @user.avatar? %>
+<%= image_tag @user.avatar.url, class: 'rounded-circle mr15', width: '40', height: '40' %>
+<% end %>
+<hr>
 <h3>プロフィール</h3>
 <%= @user.profile %>
 <hr>
