@@ -17,7 +17,7 @@ class ContentsController < ApplicationController
     @content = Content.find(params[:content_id])
     @comments = @content.comments
     @comment = @comments.new
-    #@tags = @content.tag_contents.tags
+    @tags = @content.tags
   end
 
   # GET /contents/new
