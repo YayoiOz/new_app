@@ -45,7 +45,7 @@ class Content < ApplicationRecord
         #TagContent.create!(content_id: self.id, tag_id: find_tag.id)
         
       end
-      #tag_list.eachの最後にcreateを実行してみるtest
+      #tag_list.eachの最後にcreateを実行
       #@tagに先程作成したタグor既存タグのデータを抽出
       #putsでidが出れば成功。そのidを中間テーブルで保存
       puts "=========================="
