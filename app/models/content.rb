@@ -29,20 +29,13 @@ class Content < ApplicationRecord
           puts tag
           puts find_tag
           puts "=========================="
-          
           Tag.create(tag_name: tag)
-          #この下で中間テーブルを作成しようとすると先にリダイレクトが入ってしまう
-          #TagContent.create(content_id: self.attributes['id'], tag_id: tags.ids)
-          puts "=========================="
-
         # 例外が発生すると rescue 内の処理が走り nil となるので
         # 値は保存されないで次の処理に進む
         rescue
           nil
         end
       else
-            # DB にタグが存在した場合、中間テーブルにブログ記事とタグを紐付けている
-        #TagContent.create!(content_id: self.id, tag_id: find_tag.id)
         
       end
       #tag_list.eachの最後にcreateを実行
@@ -53,14 +46,17 @@ class Content < ApplicationRecord
       puts @tag.id
       puts "=========================="
       TagContent.create!(content_id: self.id, tag_id: @tag.id)
+      
+      #チェックボックスがオンの時　tag_userを保存
+      if tag_check == 'true'
+        #ユーザーの持っているお気に入りの一番大きい値を確認
+        last_potision = TagUser.find_by(user_id: current_user.id).maximum(:position)
+        puts last_potision
+        #TagUserのテーブルをクリエイトする
+        TagUser.create!(user_id: current_user.id, tag_id: @tag.id, position: last_potision + 1)
+      end
     end
   end
   
-  #after_saveで中間テーブルのcreate
-  #新規content・既存tagだと保存されるが、新規タグは保存されない
-  #after_save do
-  #  TagContent.create(content_id: self.attributes['id'], tag_id: tags.ids)
-  #end
-  #ひょっとして既存タグは上記メソッドのelseが走ってるのでは…
 
 end
