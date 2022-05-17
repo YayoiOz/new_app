@@ -21,6 +21,9 @@
   <div class="field">
     <%= form.text_field :tag_name %>
   </div>
+  <div class="field">
+    <%= form.check_box :tag_check, {} , 1, nil  %>タグをお気に入りに追加
+  </div>
 
   <div class="actions">
     <%= form.submit %>

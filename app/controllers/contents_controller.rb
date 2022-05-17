@@ -35,9 +35,11 @@ class ContentsController < ApplicationController
     @content = current_user.contents.new(content_params)
     @content.user_id = current_user.id
     tag_list = tag_params[:tag_name].split(nil)
+    tag_check = params.require(:content).permit(:tag_check).values
+    
     if @content.save
       #タグの保存
-      @content.save_tags(tag_list)
+      @content.save_tags(tag_list, tag_check)
       #トップへリダイレクト
       redirect_to action: :index, flash:{ success: 'つぶやきに成功しました'}
     else
@@ -73,7 +75,7 @@ class ContentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def content_params
-      params.require(:content).permit(:user_id, :body, tag_ids:[])
+      params.require(:content).permit(:user_id, :body, tag_ids:[],)
     end
     def tag_params
       params.require(:content).permit(:tag_name)
