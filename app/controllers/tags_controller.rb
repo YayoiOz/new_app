@@ -4,22 +4,11 @@ class TagsController < ApplicationController
 
    # GET /tags
   def index
-    @tags = current_user.tags.all
+    #ユーザーに紐づいたタグを出したい
+    @tags = current_user.tags
+    @new_tags =current_user.tags.new
   end
 
-   # # GET /tags/1
-  def show
-      @tag = Tag.find(params[:id])
-  end
-
-   # GET /tags/new
-  def new
-    @tag = current_user.tags.new
-  end
-
-   # GET /tags/1/edit
-  def edit
-  end
 
    # POST /tags
   def create
@@ -51,12 +40,15 @@ class TagsController < ApplicationController
 
    # Use callbacks to share common setup or constraints between actions.
   def set_tag
-    @tag = current_user.tags.find(params[:id])
+    @tag = current_user.tags.find_by(id: params[:id])
   end
 
    # Only allow a trusted parameter "white list" through.
   def tag_params
-    params.require(:tag).permit(:name, :user_id)
+    params.require(:tag).permit(:tag_name, :user_id)
+  end
+  def tag_users_params
+    params.require(:tag_user).permit(:tag_id, :user_id, :position)
   end
     
 end
