@@ -1,7 +1,8 @@
 <h3>お気に入りタグ</h3>
 <br>
 <p>新しいタグを作成</p>
-<%= form_with model: @new_tags do |form| %>
+<!--　formはlink_to+modalで下記にJS記述してmodalウィンドウで対応 -->
+<!--<%= form_with model: @new_tags do |form| %>
     <div class="field">
         <%= form.text_field :tag_name %>
     </div>
@@ -9,9 +10,9 @@
         <%= form.submit %>
     </div>
 <% end %>
+-->
 
-
-お気に入りタグを並べる<br>
+お気に入りタグを並べる　テーブルタグで作成してください<br>
 
 <% @tag_users.each do |t| %>
     <%= t.tag.tag_name %>　<%= t.position %><br>

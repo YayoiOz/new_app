@@ -6,7 +6,7 @@ class TagUsersController < ApplicationController
     def index
        @tag_users = current_user.tag_users
        @tags = current_user.tags
-       @new_tags =current_user.tag_users.new
+       #@new_tags =current_user.tag_users.new
     end
     
     private
