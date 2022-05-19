@@ -11,8 +11,8 @@
 <% end %>
 
 
-お気に入りタグを並べる
-<% binding.pry %>
-<% @tag_users.each do |tag| %>
-    <%= tag.tag_name %>　<%= tag.position %>
+お気に入りタグを並べる<br>
+
+<% @tag_users.each do |t| %>
+    <%= t.tag.tag_name %>　<%= t.position %><br>
 <% end %>
