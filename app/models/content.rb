@@ -45,15 +45,13 @@ class Content < ApplicationRecord
       #binding.pry
       if tag_check.blank?
         #tag_check空なので通過
-      else  #tag_checkオンでblankじゃなくなる
+      else  #tag_checkオンでblankじゃないことを確認
         #ユーザーの持っているお気に入りの一番大きい値を確認
         last_position = TagUser.select(:position).where(user_id: user.id) .order(position: :desc)&.first
-        #binding.pry
         if last_position.blank?
           #初めてのお気に入りなので
           TagUser.create!(user_id: user.id, tag_id: @tag.id, position: 1)
         else
-        #binding.pry
         #last_positionを整数にして保存
         last_p = last_position[:position].to_i
         #TagUserのテーブルをクリエイトする

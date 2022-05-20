@@ -1,0 +1,30 @@
+<h3>お気に入りタグ</h3>
+<br>
+<!--　formはlink_to+modalで下記にJS記述してmodalウィンドウで対応にしたい -->
+ <%= link_to new_tag_path, title: "New", class: "btn p-0 text-dark" do %>
+    <i class="fas fa-plus align-middle pr-1"></i><span class="align-middle">新しいタグを作成</span>
+  <% end %>
+<hr>
+<table>
+  <thead>
+    <tr>
+      <th>タグ名</th>
+      <th>順番</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tag_users.each do |t| %>
+      <tr>
+        <td><%= t.tag.tag_name %></td>
+        <td><%= t.position %></td>
+        <td>削除</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+
+</script>

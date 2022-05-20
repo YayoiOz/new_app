@@ -1,0 +1,24 @@
+
+[1mFrom:[0m /home/ec2-user/environment/new_app/app/controllers/tags_controller.rb:10 TagsController#create:
+
+     [1;34m9[0m: [32mdef[0m [1;34mcreate[0m
+ => [1;34m10[0m:   binding.pry
+    [1;34m11[0m:     @tags = [1;34;4mTag[0m.new(tag_params)
+    [1;34m12[0m:     
+    [1;34m13[0m:     [1;34m#tag_list = tag_params[:tag_name].split(nil)[0m
+    [1;34m14[0m:     [1;34m#find_tag = Tag.find_by(tag_name: tag.downcase)[0m
+    [1;34m15[0m:   [1;34m#@new_tags.user_id = current_user.id[0m
+    [1;34m16[0m:   [1;34m#tag_list = tag_params[:tag_name].split(nil)[0m
+    [1;34m17[0m:   
+    [1;34m18[0m:   
+    [1;34m19[0m:   [1;34m#if @new_tags.save[0m
+    [1;34m20[0m:     [1;34m#タグの保存[0m
+    [1;34m21[0m:     [1;34m#@content.save_tags(tag_list, tag_check)[0m
+    [1;34m22[0m:     [1;34m#トップへリダイレクト[0m
+    [1;34m23[0m:     [1;34m#redirect_to action: :index[0m
+    [1;34m24[0m:   [1;34m#else[0m
+    [1;34m25[0m:     
+    [1;34m26[0m:     [1;34m#render :new[0m
+    [1;34m27[0m:   [1;34m#end[0m
+    [1;34m28[0m: [32mend[0m
+
