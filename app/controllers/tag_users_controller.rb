@@ -13,9 +13,9 @@ class TagUsersController < ApplicationController
         @new_tags =current_user.tag_users.new
     end
     
-    def create
-        
-    end
+    #def create
+    #    
+    #end
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_tag_users
