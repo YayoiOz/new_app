@@ -4,11 +4,18 @@ class TagUsersController < ApplicationController
     before_action :set_tag_users, only: [:show, :edit, :update, :destroy]
     
     def index
+        #ユーザーの持っているtag_user(中間)データを抽出する
        @tag_users = current_user.tag_users
-       @tags = current_user.tags
-       #@new_tags =current_user.tag_users.new
+       #@tags = current_user.tags
     end
     
+    def new
+        @new_tags =current_user.tag_users.new
+    end
+    
+    def create
+        
+    end
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_tag_users
