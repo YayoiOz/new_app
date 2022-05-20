@@ -1,0 +1,9 @@
+<h3>新しいタグを作成</h3>
+<%= form_with model: @tags do |form| %>
+    <div class="field">
+        <%= form.text_field :tag_name %>
+    </div>
+    <div class="actions">
+        <input type="submit" value="新しいタグを作成">
+    </div>
+<% end %>

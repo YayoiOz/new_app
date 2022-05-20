@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   #resources :relationships, only:[:create, :destroy]
   
   #tag機能
-  
+  resources :tags
     resources :tag_users do
       member do
         get :move_higher
