@@ -5,10 +5,20 @@ class TagUsersController < ApplicationController
     
     def index
         #ユーザーの持っているtag_user(中間)データを抽出する
-       @tag_users = current_user.tag_users
+       @tag_users = current_user.tag_users.order(:position)
        #@tags = current_user.tags
     end
-    
+    def move_higher
+        TagUser.find(params[:id]).move_higher #move_higherメソッドでpositionを上に
+        redirect_to action: :index
+    end
+    def move_lower
+        TagUser.find(params[:id]).move_lower #move_lowerメソッドでpositionを下に
+        redirect_to action: :index
+    end
+    def destroy
+        
+    end
 
   
     private

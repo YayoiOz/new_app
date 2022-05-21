@@ -5,6 +5,7 @@
     <i class="fas fa-plus align-middle pr-1"></i><span class="align-middle">新しいタグを作成</span>
   <% end %>
 <hr>
+<div id='task-list'>
 <table>
   <thead>
     <tr>
@@ -20,10 +21,13 @@
         <td><%= t.tag.tag_name %></td>
         <td><%= t.position %></td>
         <td>削除</td>
+        <td><%= link_to "↑", move_higher_tag_user_path(t) %></td>
+        <td><%= link_to "↓", move_lower_tag_user_path(t) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
 <script type="text/javascript">
 
