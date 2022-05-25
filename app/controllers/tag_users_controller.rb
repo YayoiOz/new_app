@@ -18,6 +18,8 @@ class TagUsersController < ApplicationController
     end
     def destroy
         
+        @tag_users.destroy
+        redirect_to action: :index
     end
 
   

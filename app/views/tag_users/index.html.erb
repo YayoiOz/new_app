@@ -20,7 +20,7 @@
       <tr>
         <td><%= t.tag.tag_name %></td>
         <td><%= t.position %></td>
-        <td>削除</td>
+        <td><%= link_to "削除", t, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %></td>
         <td><%= link_to "↑", move_higher_tag_user_path(t) %></td>
         <td><%= link_to "↓", move_lower_tag_user_path(t) %></td>
       </tr>
