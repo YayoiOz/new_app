@@ -51,6 +51,6 @@ Rails.application.routes.draw do
   delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
   
   #トレンド機能
-  get 'trend', :to => 'trend#index'
+  get 'trend', :to => 'trends#index'
   
 end
